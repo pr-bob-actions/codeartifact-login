@@ -9,5 +9,6 @@
     "rootDir": "./src",
     "noEmit": true
   },
-  "include": ["./src"]
+  "include": ["./src"],
+  "exclude": ["__tests__"]
 }
