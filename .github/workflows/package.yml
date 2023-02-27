@@ -18,7 +18,7 @@ jobs:
         run: yarn
 
       - name: tests
-        run: test
+        run: yarn test
 
       - name: Build
         run: ./build.sh
