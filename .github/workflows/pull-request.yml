@@ -1,0 +1,26 @@
+on:
+  pull_request:
+    branches:
+      - main
+
+name: Package
+
+jobs:
+  tests:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install
+        run: yarn
+      - name: Run tests
+        run: yarn test
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install
+        run: yarn
+      - name: Build
+        run: ./build.sh
