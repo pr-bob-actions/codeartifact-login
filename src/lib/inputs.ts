@@ -34,7 +34,9 @@ export function validateInputs(inputs: Inputs): Config {
   };
 }
 
-function validatePackageManager(packageManager?: string): PackageManager {
+export function validatePackageManager(
+  packageManager?: string
+): PackageManager {
   if (!packageManager) {
     warning("No package manager set, fallback to yarn");
     return "yarn";
@@ -59,7 +61,7 @@ function validatePackageManager(packageManager?: string): PackageManager {
   return validPackageManager;
 }
 
-function validateARN(arn?: string): Registry {
+export function validateARN(arn?: string): Registry {
   if (!arn) {
     throw error("ARN Must be specified", { title: "Missing input: ARN" });
   }
@@ -93,7 +95,7 @@ function validateARN(arn?: string): Registry {
   };
 }
 
-function validateContext(context?: string): Context {
+export function validateContext(context?: string): Context {
   let validContext: Context;
 
   switch (context?.toLowerCase()) {
@@ -101,6 +103,7 @@ function validateContext(context?: string): Context {
       validContext = "local";
       break;
     case undefined:
+    case "":
       warning("No context set, fallback to 'global'");
     case "global":
       validContext = "global";
@@ -116,7 +119,7 @@ function validateContext(context?: string): Context {
   return validContext;
 }
 
-function validateAwsCreds(aws?: Inputs["aws"]): AwsCreds | undefined {
+export function validateAwsCreds(aws?: Inputs["aws"]): AwsCreds | undefined {
   if (!aws) {
     info("No AWS creds found");
     return undefined;
