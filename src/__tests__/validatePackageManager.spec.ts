@@ -1,4 +1,4 @@
-import { validatePackageManager } from "../../lib/inputs";
+import { validatePackageManager } from "../lib/inputs";
 
 describe("ValidatePackageManager", () => {
   test("No package manager - should use yarn", () => {

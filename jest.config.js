@@ -1,5 +1,5 @@
 module.exports = {
-  // clearMocks: true,
+  roots: ["src"],
   coverageProvider: "v8",
   preset: "ts-jest",
 };

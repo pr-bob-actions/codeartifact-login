@@ -1,4 +1,4 @@
-import { validateARN } from "../../lib/inputs";
+import { validateARN } from "../lib/inputs";
 
 describe("ValidateARN", () => {
   test("No ARN - should throw", () => {
