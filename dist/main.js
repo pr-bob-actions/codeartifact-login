@@ -26103,7 +26103,18 @@ const core_1 = __nccwpck_require__(4735);
 const client_codeartifact_1 = __nccwpck_require__(4573);
 function fetchToken(registry, duration, creds) {
     return __awaiter(this, void 0, void 0, function* () {
-        const client = new client_codeartifact_1.CodeartifactClient({ region: registry.region });
+        let credentials = undefined;
+        if (creds) {
+            credentials = {
+                accessKeyId: creds.accessKeyId,
+                secretAccessKey: creds.secretAccessKey,
+                sessionToken: creds.sessionToken,
+            };
+        }
+        const client = new client_codeartifact_1.CodeartifactClient({
+            region: registry.region,
+            credentials,
+        });
         const cmd = new client_codeartifact_1.GetAuthorizationTokenCommand({
             domain: registry.domain,
             domainOwner: registry.owner,
@@ -26137,6 +26148,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+const core_1 = __nccwpck_require__(4735);
 const common_1 = __nccwpck_require__(7011);
 const configure_1 = __nccwpck_require__(9337);
 const token_1 = __nccwpck_require__(8574);
@@ -26144,6 +26156,8 @@ function main() {
     return __awaiter(this, void 0, void 0, function* () {
         const config = (0, common_1.common)();
         const token = yield (0, token_1.fetchToken)(config.registry, config.duration, config.aws);
+        (0, core_1.setSecret)(token);
+        (0, core_1.setOutput)("token", token);
         (0, configure_1.configureCodeArtifact)(config, token);
     });
 }
