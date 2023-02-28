@@ -1,4 +1,4 @@
-import { validateAwsCreds } from "../../lib/inputs";
+import { validateAwsCreds } from "../lib/inputs";
 
 const defaultInputs: any = {
   accessKeyId: "ID",

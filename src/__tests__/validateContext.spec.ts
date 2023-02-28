@@ -1,4 +1,4 @@
-import { validateContext } from "../../lib/inputs";
+import { validateContext } from "../lib/inputs";
 
 describe("ValidateContext", () => {
   test("No context - should use global", () => {
