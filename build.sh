@@ -13,11 +13,11 @@ clean_tmp() {
 clean_tmp
 
 echo "Build main"
-yarn ncc build ./src/main.ts -o $TMP
+yarn ncc build ./src/main.ts -o $TMP -m
 cp $TMP/index.js $BUILD/main.js
 
 echo "Build clean"
-yarn ncc build ./src/clean.ts -o $TMP
+yarn ncc build ./src/clean.ts -o $TMP -m
 cp $TMP/index.js $BUILD/clean.js
 
 clean_tmp
