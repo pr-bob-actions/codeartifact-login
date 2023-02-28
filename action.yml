@@ -12,7 +12,7 @@ inputs:
     description: Context to use (global | local) default global
     required: false
   duration:
-    description: Validity duration of the token in seconds (default 900s)
+    description: Validity duration of the token in seconds (default 1200s)
     required: false
 
   aws-access-key-id:
