@@ -1,0 +1,35 @@
+name: Codeartifact Login
+description: Setup codeartifact token
+
+inputs:
+  arn:
+    description: Codeartifact ARN
+    required: true
+  package-manager:
+    description: The package manager used (yarn | npm | pypi) default yarn
+    required: false
+  context:
+    description: Context to use (global | local) default global
+    required: false
+  duration:
+    description: Validity duration of the token in seconds (default 900s)
+    required: false
+
+  aws-access-key-id:
+    description: AWS access key id
+    required: false
+  aws-secret-access-key:
+    description: AWS secret access key
+    required: false
+  aws-session-token:
+    description: AWS session token
+    required: false
+
+outputs:
+  token:
+    description: The codeartifact token
+
+runs:
+  using: node16
+  main: dist/main.js
+  post: dist/clean.js
