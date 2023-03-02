@@ -10,15 +10,15 @@ import {
 
 export function parseInputs(): Inputs {
   return {
-    packageManager: process.env.INPUT_PACKAGE_MANAGER,
-    arn: process.env.INPUT_ARN,
-    context: process.env.INPUT_CONTEXT,
+    packageManager: process.env["INPUT_PACKAGE-MANAGER"],
+    arn: process.env["INPUT_ARN"],
+    context: process.env["INPUT_CONTEXT"],
     aws: {
-      accessKeyId: process.env.INPUT_AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.INPUT_AWS_SECRET_ACCESS_KEY,
-      sessionToken: process.env.INPUT_AWS_SESSION_TOKEN,
+      accessKeyId: process.env["INPUT_AWS-ACCESS-KEY-ID"],
+      secretAccessKey: process.env["INPUT_AWS-SECRET-ACCESS-KEY"],
+      sessionToken: process.env["INPUT_AWS-SESSION-TOKEN"],
     },
-    duration: process.env.INPUT_DURATION,
+    duration: process.env["INPUT_DURATION"],
   };
 }
 
