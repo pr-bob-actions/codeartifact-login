@@ -38,7 +38,7 @@ export function validatePackageManager(
   packageManager?: string
 ): PackageManager {
   if (!packageManager) {
-    warning("No package manager set, fallback to yarn");
+    info("No package manager set, fallback to yarn");
     return "yarn";
   }
 
@@ -104,7 +104,7 @@ export function validateContext(context?: string): Context {
       break;
     case undefined:
     case "":
-      warning("No context set, fallback to 'global'");
+      info("No context set, fallback to 'global'");
     case "global":
       validContext = "global";
       break;

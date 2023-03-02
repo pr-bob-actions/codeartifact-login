@@ -17,5 +17,5 @@ async function main() {
 main().catch((e) => {
   console.log("Error occurred");
   e && console.log(e);
-  process.exit;
+  process.exit(1);
 });

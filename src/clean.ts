@@ -10,5 +10,5 @@ async function clean() {
 clean().catch((e) => {
   console.log("Error occurred");
   e && console.log(e);
-  process.exit;
+  process.exit(1);
 });
